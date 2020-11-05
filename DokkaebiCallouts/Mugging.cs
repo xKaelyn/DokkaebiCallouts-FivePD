@@ -16,8 +16,8 @@ namespace DokkaebiCallouts
 
         public Mugging()
         {
-            float offsetX = rnd.Next(100, 700);
-            float offsetY = rnd.Next(100, 700);
+            float offsetX = rnd.Next(100, 450);
+            float offsetY = rnd.Next(100, 450);
 
             InitInfo(World.GetNextPositionOnStreet(Game.PlayerPed.GetOffsetPosition(new Vector3(offsetX, offsetY, 0))));
 
