@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using FivePD.API;
 using FivePD.API.Utils;
 using CitizenFX.Core;
+using CitizenFX.Core.UI;
 
 namespace DokkaebiCallouts
 {
@@ -45,17 +46,17 @@ namespace DokkaebiCallouts
             keepTask(suspect);
 
             suspect.SetIntoVehicle(vehicle, VehicleSeat.Driver);
-            vehicle.AttachBlip();
-
-            suspect.Task.CruiseWithVehicle(vehicle, 50f, 786603);
+            suspect.Task.CruiseWithVehicle(vehicle, 20f, 786603);
         }
 
         public override void OnStart(Ped player)
         {
             base.OnStart(player);
+            vehicle.AttachBlip();
 
             PedData pedData = new PedData();
             VehicleData vehicleData = new VehicleData();
+            Screen.ShowSubtitle("It looks like the suspect has fled the area.");
 
             string firstname = pedData.FirstName;
             string lastname = pedData.LastName;
@@ -78,11 +79,19 @@ namespace DokkaebiCallouts
             }
         }
 
+        public override void OnCancelBefore()
+        {
+            base.OnCancelBefore();
+
+            if (vehicle.Exists())
+                CleanUp();
+        }
+
         //public async Task OnPedArrested(Ped p)
         //{
-            // Left unused for the moment.
+        // Left unused for the moment.
         //}
- 
+
         public static void keepTask(Ped p)
         {
             p.BlockPermanentEvents = true;
@@ -124,6 +133,16 @@ namespace DokkaebiCallouts
                 VehicleHash.ZType
             };
             return vehicles[rnd.Next(vehicles.Count)];
+        }
+
+        public void CleanUp()
+        {
+            if (vehicle.AttachedBlip.Exists())
+                vehicle.AttachedBlip.Delete();
+            if (suspect.Exists())
+                suspect.Delete();
+            if (vehicle.Exists())
+                vehicle.Delete();
         }
     }
 }
