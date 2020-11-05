@@ -48,6 +48,9 @@ namespace DokkaebiCallouts
 
             keepTask(suspect);
 
+            // Shows notification once the player accepts the call.
+            Screen.ShowNotification("Respond to the reported location as quickly as possible - the driver is most likely on the move at quite some speed.");
+
             // Puts the suspect into the driver's seat and tells him to cruise, with normal flags.
             suspect.SetIntoVehicle(vehicle, VehicleSeat.Driver);
             suspect.Task.CruiseWithVehicle(vehicle, 20f, 786603);
@@ -66,7 +69,7 @@ namespace DokkaebiCallouts
             VehicleData vehicleData = new VehicleData();
 
             // Shows a simple subtitle at the bottom of the screen.
-            Screen.ShowSubtitle("It looks like the suspect has fled the area.");
+            Screen.ShowSubtitle("~r~It looks like the suspect has fled the area.~w~");
 
             // String variables.
             string firstname = pedData.FirstName;
@@ -155,7 +158,7 @@ namespace DokkaebiCallouts
             return vehicles[rnd.Next(vehicles.Count)];
         }
 
-        // Cleanup function as a failsafe if FivePD fails to destroy spawned in assets.
+        // Cleanup function as a failsafe if FivePD fails to destroy spawned in assets, which it does quite often.
         public void CleanUp()
         {
             if (vehicle.AttachedBlip.Exists())
