@@ -32,9 +32,12 @@ namespace DokkaebiCallouts
             suspect = await SpawnPed(RandomUtils.GetRandomPed(), Location);
             vehicle = await SpawnVehicle(spawnRandomCar(), Location);
 
+            //Events.OnPedArrested += OnPedArrested;
+
             keepTask(suspect);
 
             suspect.SetIntoVehicle(vehicle, VehicleSeat.Driver);
+            vehicle.AttachBlip();
         }
 
         public override void OnStart(Ped player)
@@ -66,6 +69,11 @@ namespace DokkaebiCallouts
             }
         }
 
+        //public async Task OnPedArrested(Ped p)
+        //{
+            // Left unused for the moment.
+        //}
+ 
         public static void keepTask(Ped p)
         {
             p.BlockPermanentEvents = true;
