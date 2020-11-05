@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ANPR-OwnerWanted.cs" />
+    <Compile Include="ALPR-OwnerWanted.cs" />
     <Compile Include="Mugging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,21 +7,21 @@ using CitizenFX.Core;
 
 namespace DokkaebiCallouts
 {
-    [CalloutProperties("ANPR: Owner Wanted", "xSklzx Dokkaebi", "1.0.0.0")]
-    public class ANPR_OwnerWanted : Callout
+    [CalloutProperties("ALPR: Owner Wanted", "xSklzx Dokkaebi", "1.0.0.0")]
+    public class ALPR_OwnerWanted : Callout
     {
         private readonly Random rnd = new Random();
         private Ped suspect;
         private Vehicle vehicle;
-        public ANPR_OwnerWanted()
+        public ALPR_OwnerWanted()
         {
             float offsetX = rnd.Next(100, 450);
             float offsetY = rnd.Next(100, 450);
 
             InitInfo(World.GetNextPositionOnStreet(new Vector3(offsetX, offsetY, 0)));
 
-            ShortName = "ANPR: Registered Owner Wanted";
-            CalloutDescription = "An ANPR camera has picked up a flag on a vehicle, the registered owner is wanted by law enforcement.";
+            ShortName = "ALPR: Registered Owner Wanted";
+            CalloutDescription = "An ALPR camera has picked up a flag on a vehicle, the registered owner is wanted by law enforcement.";
             ResponseCode = 3;
             StartDistance = 100f;
 
