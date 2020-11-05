@@ -35,7 +35,6 @@ namespace DokkaebiCallouts
                 this.ShortName,
                 @"CRIMES/CRIME_TRAFFIC_ALERT_01.ogg"
             });
-
         }
 
         // Runs when the player presses Y to accept the callout.
