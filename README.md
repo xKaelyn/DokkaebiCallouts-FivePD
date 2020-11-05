@@ -1,6 +1,6 @@
 # DokkaebiCallouts-FivePD
 
-https://img.shields.io/discord/772551988683472956?style=for-the-badge
+[https://img.shields.io/discord/772551988683472956?style=for-the-badge](https://img.shields.io/discord/772551988683472956?style=for-the-badge)
 [![Known Vulnerabilities](https://snyk.io/test/github/xSklzxDokkaebi/DokkaebiCallouts-FivePD/badge.svg)](https://snyk.io/test/github/xSklzxDokkaebi/DokkaebiCallouts-FivePD)
 
 ### Current Callouts
