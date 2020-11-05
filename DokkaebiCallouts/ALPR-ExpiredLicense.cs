@@ -78,6 +78,8 @@ namespace DokkaebiCallouts
             //  Sets the driver's driving license to revoked.
             pedData.DriverLicense.LicenseStatus = PedData.License.Status.Expired;
 
+            Utilities.SetPedData(suspect.NetworkId, pedData);
+
             //  Essentially sets the vehicle to be owned by the driver, as FivePD doesn't do that automatically.
             vehicleData.OwnerFirstName = firstname;
             vehicleData.OwnerLastName = lastname;
@@ -86,7 +88,6 @@ namespace DokkaebiCallouts
             vehicleData.Flag = "Owner has expired driving license";
 
             //  Push the data we just set to both the driver and the vehicle.
-            Utilities.SetPedData(suspect.NetworkId, pedData);
             Utilities.SetVehicleData(vehicle.NetworkId, vehicleData);
 
             //  40% chance for the suspect to flee using the IPursuit interface.
