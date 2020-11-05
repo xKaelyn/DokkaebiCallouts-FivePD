@@ -51,6 +51,11 @@ namespace DokkaebiCallouts
             vehicleData.OwnerLastName = lastname;
             vehicleData.Flag = "Registed Owner Wanted";
 
+            Utilities.SetPedData(suspect.NetworkId, pedData);
+            Utilities.SetVehicleData(vehicle.NetworkId, vehicleData);
+
+            suspect.Task.CruiseWithVehicle(vehicle, 50f, [DrivingStyle.Normal);
+
             int chance = rnd.Next(0, 10);
             if (chance >= 0 && chance <= 3)
             {
