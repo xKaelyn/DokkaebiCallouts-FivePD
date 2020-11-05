@@ -24,6 +24,14 @@ namespace DokkaebiCallouts
             CalloutDescription = "An ANPR camera has picked up a flag on a vehicle, the registered owner is wanted by law enforcement.";
             ResponseCode = 3;
             StartDistance = 100f;
+
+            // FivePDAudio compatibility - https://gtapolicemods.com/index.php?/files/file/895-fivepd-audio-dispatch-audio/
+            BaseScript.TriggerEvent("FivePDAudio::RegisterCallout", new object[]
+            {
+                this.ShortName,
+                @"CRIMES/CRIME_TRAFFIC_ALERT_01.ogg"
+            });
+
         }
 
         public override async Task OnAccept()
@@ -38,6 +46,8 @@ namespace DokkaebiCallouts
 
             suspect.SetIntoVehicle(vehicle, VehicleSeat.Driver);
             vehicle.AttachBlip();
+
+            suspect.Task.CruiseWithVehicle(vehicle, 50f, 786603);
         }
 
         public override void OnStart(Ped player)
@@ -56,8 +66,6 @@ namespace DokkaebiCallouts
 
             Utilities.SetPedData(suspect.NetworkId, pedData);
             Utilities.SetVehicleData(vehicle.NetworkId, vehicleData);
-
-            suspect.Task.CruiseWithVehicle(vehicle, 50f, 786603);
 
             // 40% chance for the suspect to flee using the IPursuit interface.
             int chance = rnd.Next(0, 10);
