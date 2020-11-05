@@ -5,7 +5,7 @@
 ![discord](https://img.shields.io/discord/772551988683472956?style=for-the-badge)
 ![issues](https://img.shields.io/github/issues/xsklzxdokkaebi/DokkaebiCallouts-FivePD?style=for-the-badge)
 ![downloads](https://img.shields.io/github/downloads/xsklzxdokkaebi/DokkaebiCallouts-FivePD/total?style=for-the-badge)
-[![Known Vulnerabilities](https://snyk.io/test/github/xSklzxDokkaebi/DokkaebiCallouts-FivePD/badge.svg)](https://snyk.io/test/github/xSklzxDokkaebi/DokkaebiCallouts-FivePD)
+![Known Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/xSklzxDokkaebi/DokkaebiCallouts-FivePD?style=for-the-badge)
 
 ### Current Callouts
 - ALPR: Expired License
