@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using FivePD.API;
 using FivePD.API.Utils;
 using CitizenFX.Core;
+using static DokkaebiCallouts.GlobalVariables;
 
 namespace DokkaebiCallouts
 {
@@ -67,15 +68,7 @@ namespace DokkaebiCallouts
 
         private WeaponHash getRandomWeapon()
         {
-            List<WeaponHash> weapons = new List<WeaponHash>
-            {
-                WeaponHash.Bottle,
-                WeaponHash.Crowbar,
-                WeaponHash.Dagger,
-                WeaponHash.Hammer,
-                WeaponHash.Wrench
-            };
-            return weapons[rnd.Next(weapons.Count)];
+            return randomMeleeWeaponList[rnd.Next(randomMeleeWeaponList.Count)];
         }
     }
 }

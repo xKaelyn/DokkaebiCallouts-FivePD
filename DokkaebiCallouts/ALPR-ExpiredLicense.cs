@@ -5,6 +5,7 @@ using FivePD.API;
 using FivePD.API.Utils;
 using CitizenFX.Core;
 using CitizenFX.Core.UI;
+using static DokkaebiCallouts.GlobalVariables;
 
 namespace DokkaebiCallouts
 {
@@ -82,7 +83,7 @@ namespace DokkaebiCallouts
             vehicleData.OwnerLastName = lastname;
 
             //  Sets the vehicle to be flagged up on the system - doesn't seem to actually do it though.
-            vehicleData.Flag = "Owner has revoked driving license";
+            vehicleData.Flag = "Owner has expired driving license";
 
             //  Push the data we just set to both the driver and the vehicle.
             Utilities.SetPedData(suspect.NetworkId, pedData);
@@ -120,25 +121,7 @@ namespace DokkaebiCallouts
         // A list to spawn a random car.
         private VehicleHash spawnRandomCar()
         {
-            List<VehicleHash> vehicles = new List<VehicleHash>
-            {
-                VehicleHash.Futo,
-                VehicleHash.Gauntlet,
-                VehicleHash.Gauntlet2,
-                VehicleHash.Intruder,
-                VehicleHash.Khamelion,
-                VehicleHash.Kuruma,
-                VehicleHash.Kuruma2,
-                VehicleHash.Sentinel,
-                VehicleHash.Sentinel2,
-                VehicleHash.Schafter2,
-                VehicleHash.Schafter3,
-                VehicleHash.Schafter4,
-                VehicleHash.Schafter5,
-                VehicleHash.Schafter6,
-                VehicleHash.ZType
-            };
-            return vehicles[rnd.Next(vehicles.Count)];
+            return randomVehicleList[rnd.Next(randomVehicleList.Count)];
         }
 
         //  Cleanup function as a failsafe if FivePD fails to destroy spawned in assets, which it does quite often.

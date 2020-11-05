@@ -5,6 +5,7 @@ using FivePD.API;
 using FivePD.API.Utils;
 using CitizenFX.Core;
 using CitizenFX.Core.UI;
+using static DokkaebiCallouts.GlobalVariables;
 
 namespace DokkaebiCallouts
 {
@@ -134,28 +135,10 @@ namespace DokkaebiCallouts
             return warrantList[rnd.Next(warrantList.Count)];
         }
 
-        // A list to pick a random vehicle.
+        // A list to spawn a random car.
         private VehicleHash spawnRandomCar()
         {
-            List<VehicleHash> vehicles = new List<VehicleHash>
-            {
-                VehicleHash.Futo,
-                VehicleHash.Gauntlet,
-                VehicleHash.Gauntlet2,
-                VehicleHash.Intruder,
-                VehicleHash.Khamelion,
-                VehicleHash.Kuruma,
-                VehicleHash.Kuruma2,
-                VehicleHash.Sentinel,
-                VehicleHash.Sentinel2,
-                VehicleHash.Schafter2,
-                VehicleHash.Schafter3,
-                VehicleHash.Schafter4,
-                VehicleHash.Schafter5,
-                VehicleHash.Schafter6,
-                VehicleHash.ZType
-            };
-            return vehicles[rnd.Next(vehicles.Count)];
+            return randomVehicleList[rnd.Next(randomVehicleList.Count)];
         }
 
         // Cleanup function as a failsafe if FivePD fails to destroy spawned in assets, which it does quite often.

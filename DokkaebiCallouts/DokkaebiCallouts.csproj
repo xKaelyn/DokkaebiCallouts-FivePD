@@ -53,11 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ALPR-NoLicense.cs" />
+    <Compile Include="ALPR-SuspendedLicense.cs" />
     <Compile Include="ALPR-OwnerWanted.cs" />
     <Compile Include="ALPR-ExpiredLicense.cs" />
     <Compile Include="ALPR-RevokedLicense.cs" />
     <Compile Include="Mugging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GlobalVariables.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

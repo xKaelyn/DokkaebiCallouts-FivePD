@@ -9,14 +9,14 @@ using static DokkaebiCallouts.GlobalVariables;
 
 namespace DokkaebiCallouts
 {
-    [CalloutProperties("ALPR: Driving License Revoked", "xSklzx Dokkaebi", "1.0.0.0")]
-    public class ALPR_RevokedLicense : Callout
+    [CalloutProperties("ALPR: No Driving License", "xSklzx Dokkaebi", "1.0.0.0")]
+    public class ALPR_NoLicense : Callout
     {
         //  Variables required.
         public readonly Random rnd = new Random();
         private Ped suspect;
         private Vehicle vehicle;
-        public ALPR_RevokedLicense()
+        public ALPR_NoLicense()
         {
             //  Picks a random location on the map within a radius given below.
             float offsetX = rnd.Next(100, 450);
@@ -25,8 +25,8 @@ namespace DokkaebiCallouts
             InitInfo(World.GetNextPositionOnStreet(new Vector3(offsetX, offsetY, 0)));
 
             //  Information that FivePD uses for both the in-game notification and police computer.
-            ShortName = "ALPR: Driving License Revoked";
-            CalloutDescription = "An ALPR camera has picked up a flag on a vehicle, the registered owner is driving with a revoked driving license.";
+            ShortName = "ALPR: No Driving License";
+            CalloutDescription = "An ALPR camera has picked up a flag on a vehicle, the registered owner is driving with no driving license.";
             ResponseCode = 2;
             StartDistance = 100f;
 
@@ -76,18 +76,30 @@ namespace DokkaebiCallouts
             string lastname = pedData.LastName;
 
             //  Sets the driver's driving license to revoked.
-            pedData.DriverLicense.LicenseStatus = PedData.License.Status.Revoked;
+            pedData.DriverLicense.LicenseStatus = PedData.License.Status.Expired;
 
             //  Essentially sets the vehicle to be owned by the driver, as FivePD doesn't do that automatically.
             vehicleData.OwnerFirstName = firstname;
             vehicleData.OwnerLastName = lastname;
 
             //  Sets the vehicle to be flagged up on the system - doesn't seem to actually do it though.
-            vehicleData.Flag = "Owner has revoked driving license";
+            vehicleData.Flag = "Owner has no driving license";
 
             //  Push the data we just set to both the driver and the vehicle.
             Utilities.SetPedData(suspect.NetworkId, pedData);
             Utilities.SetVehicleData(vehicle.NetworkId, vehicleData);
+
+            //  40% chance for the suspect to flee using the IPursuit interface.
+            int chance = rnd.Next(0, 10);
+
+            //  If the number is between, or equal to, 0 through 3, initiate a pursuit.
+            if (chance >= 0 && chance <= 3)
+            {
+                var pursuit = Pursuit.RegisterPursuit(suspect);
+                pursuit.Init(true, 30f, 125f, true);
+                pursuit.ActivatePursuit();
+                Utilities.ExcludeVehicleFromTrafficStop(vehicle.NetworkId, true);
+            }
         }
 
         public override void OnCancelBefore()
