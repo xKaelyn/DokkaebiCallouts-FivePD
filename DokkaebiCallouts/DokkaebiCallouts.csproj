@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ALPR-OwnerWanted.cs" />
+    <Compile Include="ALPR-RevokedLicense.cs" />
     <Compile Include="Mugging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
