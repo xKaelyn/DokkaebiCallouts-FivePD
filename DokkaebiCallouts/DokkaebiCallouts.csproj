@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ALPR-NoLicense.cs" />
     <Compile Include="ALPR-SuspendedLicense.cs" />
     <Compile Include="ALPR-OwnerWanted.cs" />
     <Compile Include="ALPR-ExpiredLicense.cs" />
