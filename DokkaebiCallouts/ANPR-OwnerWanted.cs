@@ -15,8 +15,8 @@ namespace DokkaebiCallouts
         private Vehicle vehicle;
         public ANPR_OwnerWanted()
         {
-            float offsetX = rnd.Next(100, 700);
-            float offsetY = rnd.Next(100, 700);
+            float offsetX = rnd.Next(100, 450);
+            float offsetY = rnd.Next(100, 450);
 
             InitInfo(World.GetNextPositionOnStreet(new Vector3(offsetX, offsetY, 0)));
 
@@ -56,6 +56,7 @@ namespace DokkaebiCallouts
 
             suspect.Task.CruiseWithVehicle(vehicle, 50f, 786603);
 
+            // 40% chance for the suspect to flee using the IPursuit interface.
             int chance = rnd.Next(0, 10);
             if (chance >= 0 && chance <= 3)
             {
