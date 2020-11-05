@@ -74,6 +74,7 @@ namespace DokkaebiCallouts
                 var pursuit = Pursuit.RegisterPursuit(suspect);
                 pursuit.Init(true, 30f, 125f, true);
                 pursuit.ActivatePursuit();
+                Utilities.ExcludeVehicleFromTrafficStop(vehicle.NetworkId, true);
             }
         }
 
