@@ -41,6 +41,7 @@ namespace DokkaebiCallouts
         public override async Task OnAccept()
         {
             InitBlip();
+
             // Spawns both the suspect and vehicle.
             suspect = await SpawnPed(RandomUtils.GetRandomPed(), Location);
             vehicle = await SpawnVehicle(spawnRandomCar(), Location);
@@ -56,23 +57,28 @@ namespace DokkaebiCallouts
         public override void OnStart(Ped player)
         {
             base.OnStart(player);
+
             // Attaches a blip to the vehicle.
             vehicle.AttachBlip();
 
             // Variables for the driver data and the vehicle data.
             PedData pedData = new PedData();
             VehicleData vehicleData = new VehicleData();
+
             // Shows a simple subtitle at the bottom of the screen.
             Screen.ShowSubtitle("It looks like the suspect has fled the area.");
 
             // String variables.
             string firstname = pedData.FirstName;
             string lastname = pedData.LastName;
+
             // Gives the driver a random warrant from the list.
             pedData.Warrant = randomWarrant();
+
             // Essentially sets the vehicle to be owned by the driver, as FivePD doesn't do that automatically.
             vehicleData.OwnerFirstName = firstname;
             vehicleData.OwnerLastName = lastname;
+
             // Sets the vehicle to be flagged up on the system - doesn't seem to actually do it though.
             vehicleData.Flag = "Registered Owner Wanted";
 
@@ -82,6 +88,7 @@ namespace DokkaebiCallouts
 
             // 40% chance for the suspect to flee using the IPursuit interface.
             int chance = rnd.Next(0, 10);
+
             // If the number is between, or equal to, 0 through 3, initiate a pursuit.
             if (chance >= 0 && chance <= 3)
             {
