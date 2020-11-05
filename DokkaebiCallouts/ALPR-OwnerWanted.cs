@@ -97,6 +97,7 @@ namespace DokkaebiCallouts
         {
             base.OnCancelBefore();
 
+            // If the vehicle exists, call the CleanUp function.
             if (vehicle.Exists())
                 CleanUp();
         }
