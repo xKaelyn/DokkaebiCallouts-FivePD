@@ -15,6 +15,6 @@
 
 This callout pack is current work in progress, it'll focus around the ALPR system and small crimes around the city of Los Santos. 
 
-[B]This callout pack is NOT compatible with LSPDFR. Click (here) for the LSPDFR version.[/B]
+### This callout pack is NOT compatible with LSPDFR. Click (here) for the LSPDFR version.
 
 Master branch is considered the development branch and may not be functional at all times, for the latest stable release, download the latest release.
