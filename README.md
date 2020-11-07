@@ -13,6 +13,8 @@
 - ALPR: Owner Wanted
 - Mugging
 
-This is a wip callout package and will be updated in due course.
+This callout pack is current work in progress, it'll focus around the ALPR system and small crimes around the city of Los Santos. 
+
+[B]This callout pack is NOT compatible with LSPDFR. Click (here) for the LSPDFR version.[/B]
 
 Master branch is considered the development branch and may not be functional at all times, for the latest stable release, download the latest release.
