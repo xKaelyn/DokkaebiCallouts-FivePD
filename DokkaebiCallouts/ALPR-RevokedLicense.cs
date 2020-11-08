@@ -1,11 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using FivePD.API;
 using FivePD.API.Utils;
 using CitizenFX.Core;
 using CitizenFX.Core.UI;
 using static DokkaebiCallouts.GlobalVariables;
+
+/* DokkaebiCallouts for FivePD | Developed by xSklzx Dokkaebi */
+/* Available via the MIT license */
 
 namespace DokkaebiCallouts
 {

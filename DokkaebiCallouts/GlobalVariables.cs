@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using CitizenFX.Core;
 
+/* DokkaebiCallouts for FivePD | Developed by xSklzx Dokkaebi */
+/* Available via the MIT license */
+
 namespace DokkaebiCallouts
 {
     public class GlobalVariables

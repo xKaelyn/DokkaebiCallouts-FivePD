@@ -7,6 +7,9 @@ using CitizenFX.Core;
 using CitizenFX.Core.UI;
 using static DokkaebiCallouts.GlobalVariables;
 
+/* DokkaebiCallouts for FivePD | Developed by xSklzx Dokkaebi */
+/* Available via the MIT license */
+
 namespace DokkaebiCallouts
 {
     [CalloutProperties("ALPR: Owner Wanted", "xSklzx Dokkaebi", "1.0.0.0")]

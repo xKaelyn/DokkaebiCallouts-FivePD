@@ -6,6 +6,9 @@ using FivePD.API.Utils;
 using CitizenFX.Core;
 using static DokkaebiCallouts.GlobalVariables;
 
+/* DokkaebiCallouts for FivePD | Developed by xSklzx Dokkaebi */
+/* Available via the MIT license */
+
 namespace DokkaebiCallouts
 {
     [CalloutProperties("Mugging", "xSklzx Dokkaebi", "1.0.0.0")]
